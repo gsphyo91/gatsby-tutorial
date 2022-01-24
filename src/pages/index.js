@@ -1,11 +1,12 @@
 import * as React from "react"
+import Layout from "./components/layout"
 
 // markup
 const IndexPage = () => {
   return (
-    <main>
-      <title>Gatsby Site!!!</title>
-    </main>
+    <Layout>
+      <h1>Home Page</h1>
+    </Layout>
   )
 }
 
