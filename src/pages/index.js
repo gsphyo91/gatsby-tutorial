@@ -4,7 +4,7 @@ import Layout from "./components/layout"
 // markup
 const IndexPage = () => {
   return (
-    <Layout>
+    <Layout pageTitle="Home">
       <h1>Home Page</h1>
     </Layout>
   )
