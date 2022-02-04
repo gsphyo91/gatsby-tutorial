@@ -7,6 +7,13 @@ export const Container = styled.div`
   font-family: sans-serif;
 `;
 
+export const SiteTitle = styled.header`
+  font-size: 3rem;
+  color: gray;
+  font-weight: 700;
+  margin: 3rem 0;
+`;
+
 export const Heading = styled.h1`
   color: rebeccapurple;
 `;
