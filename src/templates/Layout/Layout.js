@@ -1,8 +1,16 @@
-import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Container, Heading, NavLinkItem, NavLinks, NavLinkText, SiteTitle } from "./Layout.style";
+import {
+  Container,
+  Heading,
+  NavLinkItem,
+  NavDropdown,
+  NavLinks,
+  NavLinkText,
+  SiteTitle,
+} from "./Layout.style";
+import * as React from "react";
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ category, children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -15,25 +23,23 @@ const Layout = ({ pageTitle, children }) => {
 
   return (
     <Container>
-      <title>
-        {pageTitle} | {data.site.siteMetadata.title}
-      </title>
-      <SiteTitle>{data.site.siteMetadata.title}</SiteTitle>
+      <title>{data.site.siteMetadata.title}</title>
       <nav>
         <NavLinks>
           <NavLinkItem>
-            <NavLinkText to="/">Home</NavLinkText>
+            <NavLinkText to="/" title="홈으로 이동">
+              <SiteTitle>{data.site.siteMetadata.title}</SiteTitle>
+            </NavLinkText>
           </NavLinkItem>
           <NavLinkItem>
-            <NavLinkText to="/about">About</NavLinkText>
-          </NavLinkItem>
-          <NavLinkItem>
-            <NavLinkText to="/blog">Blog</NavLinkText>
+            <NavLinkText to="/about" title="소개">
+              About
+            </NavLinkText>
           </NavLinkItem>
         </NavLinks>
       </nav>
       <main>
-        <Heading>{pageTitle}</Heading>
+        <Heading>{category}</Heading>
         {children}
       </main>
     </Container>
